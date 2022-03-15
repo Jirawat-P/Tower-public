@@ -1,0 +1,15 @@
+---
+- name: Hello World!
+  hosts: all
+ 
+  tasks:
+      - name: "Example1: Validate if a String or line is present in the file"
+        become: yes
+        become_user: root
+        tags: example1
+        lineinfile:
+          path: /home/sam/addline
+          line: "LogLevel debug"
+          state: present
+          backup: yes
+        register: example1out
